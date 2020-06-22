@@ -1,12 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { FeedbackComponent } from './feedback/feedback.component';
-import { NotesComponent } from './notes/notes.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import {AppComponent} from './app.component';
+import {NavigationComponent} from './navigation/navigation.component';
+import {FeedbackComponent} from './feedback/feedback.component';
+import {NotesComponent} from './notes/notes.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 import {Router, RouterModule, Routes} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   {
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:'**',
+    path: '**',
     component: NotFoundComponent
   }
 ];
@@ -38,9 +39,11 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, {enableTracing:true})
+    FormsModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
