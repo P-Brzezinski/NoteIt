@@ -2,7 +2,7 @@
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-      <form name="form" #f="ngForm" novalidate class="feedback-form">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && sendFeedback()" novalidate class="feedback-form">
 
         <!-- Name -->
         <div class="form-group">
@@ -12,7 +12,13 @@
                  class="form-control"
                  name="name"
                  placeholder="Your name"
-                 [(ngModel)]="model.name"/>
+                 [(ngModel)]="model.name"
+                 #name="ngModel"
+                 [ngClass]="{'is-invalid': f.submitted && name.invalid}"
+                 required/>
+          <div *ngIf="f.submitted && name.invalid" class="invalid-input">
+            <div *ngIf="name.errors?.required">Field is required</div>
+          </div>
         </div>
 
         <!-- Email -->
@@ -23,7 +29,14 @@
                  class="form-control"
                  name="email"
                  placeholder="Your email"
-                 [(ngModel)]="model.email"/>
+                 [(ngModel)]="model.email"
+                 #email="ngModel"
+                 [ngClass]="{'is-invalid':f.submitted && email.invalid}"
+                 required email/>
+          <div *ngIf="f.submitted && email.invalid" class="invalid-input">
+            <div *ngIf="email.errors?.required">Field is required</div>
+            <div *ngIf="email.errors?.email">Field is not a valid email</div>
+          </div>
         </div>
 
         <!-- Feedback -->
@@ -34,8 +47,15 @@
             class="form-control"
             name="feedback"
             placeholder="Your feedback"
-            [(ngModel)]="model.feedback">
+            [(ngModel)]="model.feedback"
+            #feedback="ngModel"
+            [ngClass]="{'is-invalid': f.submitted && feedback.invalid}"
+            required minlength="10">
 			    </textarea>
+          <div *ngIf="f.submitted && feedback.invalid" class="invalid-input">
+            <div *ngIf="feedback.errors?.required">Field is required</div>
+            <div *ngIf="feedback.errors?.minlength">Field is to small (try 10 characters)</div>
+          </div>
         </div>
 
         <button type="submit" class="btn btn-info pull-right">
