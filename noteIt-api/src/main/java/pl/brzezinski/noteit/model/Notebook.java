@@ -1,5 +1,7 @@
 package pl.brzezinski.noteit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ public class Notebook {
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "notebook", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Note> notes;
 
     protected Notebook(){
