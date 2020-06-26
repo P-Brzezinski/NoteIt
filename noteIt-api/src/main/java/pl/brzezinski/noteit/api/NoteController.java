@@ -55,7 +55,7 @@ public class NoteController {
         return noteViewModel;
     }
 
-    @GetMapping("/byNotebook/{notebookId")
+    @GetMapping("/byNotebook/{notebookId}")
     public List<NoteViewModel> byNotebook(@PathVariable String notebookId){
         List<Note> notes = new ArrayList<>();
 
