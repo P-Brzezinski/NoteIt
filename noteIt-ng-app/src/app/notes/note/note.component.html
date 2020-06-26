@@ -16,6 +16,6 @@
               [(ngModel)]="note.text"
               (change)="updateNote()"
               style="width: 100%" rows="6"></textarea>
-    <strong class="text-info" style="font-size: small"><!-- Place for date--></strong>
+    <strong class="text-info" style="font-size: small">{{note.lastModifiedOn | date:'dd-MM-yyyy HH:mm'}}</strong>
   </div>
 </div>

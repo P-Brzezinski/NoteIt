@@ -23,7 +23,7 @@ public class Mapper {
         var viewModel = new NoteViewModel();
         viewModel.setTitle(entity.getTitle());
         viewModel.setId(entity.getId().toString());
-        viewModel.setLastModified(entity.getLastModified());
+        viewModel.setLastModifiedOn(entity.getLastModifiedOn());
         viewModel.setText(entity.getText());
         viewModel.setNotebookId(entity.getNotebook().getId().toString());
 

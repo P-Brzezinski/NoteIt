@@ -18,11 +18,11 @@ public class Note {
     @ManyToOne(fetch = FetchType.LAZY)
     private Notebook notebook;
 
-    private Date lastModified;
+    private Date lastModifiedOn;
 
     protected Note() {
         this.id = UUID.randomUUID();
-        this.lastModified = new Date();
+        this.lastModifiedOn = new Date();
     }
 
     public Note(String title, String text, Notebook notebook) {
@@ -71,11 +71,11 @@ public class Note {
         this.notebook = notebook;
     }
 
-    public Date getLastModified() {
-        return lastModified;
+    public Date getLastModifiedOn() {
+        return lastModifiedOn;
     }
 
-    public void setLastModified(Date lastModified) {
-        this.lastModified = lastModified;
+    public void setLastModifiedOn(Date lastModified) {
+        this.lastModifiedOn = lastModified;
     }
 }

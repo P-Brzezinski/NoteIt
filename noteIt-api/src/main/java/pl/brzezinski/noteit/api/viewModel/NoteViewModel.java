@@ -18,7 +18,7 @@ public class NoteViewModel {
     @NotNull
     private String notebookId;
 
-    private Date lastModified;
+    private Date lastModifiedOn;
 
     public String getId() {
         return id;
@@ -52,11 +52,11 @@ public class NoteViewModel {
         this.notebookId = notebookId;
     }
 
-    public Date getLastModified() {
-        return lastModified;
+    public Date getLastModifiedOn() {
+        return lastModifiedOn;
     }
 
-    public void setLastModified(Date lastModified) {
-        this.lastModified = lastModified;
+    public void setLastModifiedOn(Date lastModifiedOn) {
+        this.lastModifiedOn = lastModifiedOn;
     }
 }
